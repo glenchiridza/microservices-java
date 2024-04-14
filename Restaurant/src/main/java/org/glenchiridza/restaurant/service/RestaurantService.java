@@ -14,10 +14,15 @@ import java.util.List;
 public class RestaurantService {
 
     private final RestaurantRepository repository;
-    private RecipeClient recipeClient;
+    private final RecipeClient recipeClient;
 
-    public void saveRestaurant(Restaurant recipe){
-        repository.save(recipe);
+    public void saveRestaurant(Restaurant dto){
+        Restaurant restaurant = Restaurant.builder()
+                .name(dto.getName())
+                .email(dto.getEmail())
+                .address(dto.getAddress())
+                .build();
+        repository.save(restaurant);
     }
 
     public List<Restaurant> findAllRestaurants(){

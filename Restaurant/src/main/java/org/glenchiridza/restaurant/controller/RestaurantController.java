@@ -21,9 +21,9 @@ public class RestaurantController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void save(
-            @RequestBody Restaurant recipe
+            @RequestBody Restaurant restaurant
             ){
-        service.saveRestaurant(recipe);
+        service.saveRestaurant(restaurant);
     }
 
     @GetMapping
@@ -31,7 +31,7 @@ public class RestaurantController {
         return ResponseEntity.ok(service.findAllRestaurants());
     }
 
-    @GetMapping("recipes/{restaurant-id}")
+    @GetMapping("/recipes/{restaurant-id}")
     public ResponseEntity<RestaurantResponse> findAllRestaurantRecipes(
             @PathVariable("restaurant-id") Integer id){
         return ResponseEntity.ok(service.findAllRestaurantRecipes(id));
