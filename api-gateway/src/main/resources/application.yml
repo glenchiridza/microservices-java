@@ -1,25 +1,5 @@
-server:
-  port: 8022
-eureka:
-  client:
-    register-with-eureka: false
-
 spring:
   application:
     name: api-gateway
   config:
     import: optional:configserver:http://localhost:8888
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-        - id: recipes
-          uri: http://localhost:8090
-          predicates:
-            - Path=/api/v1/recipes/**
-        - id: restaurants
-          uri: http://localhost:9090
-          predicates:
-            - Path=/api/v1/restaurants/**
