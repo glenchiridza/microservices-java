@@ -3,10 +3,10 @@ eureka:
     hostname: localhost
   client:
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka
 
 server:
-  port: 8091
+  port: 9090
 spring:
   application:
     name: Restaurant
@@ -14,10 +14,16 @@ spring:
     import: optional:configserver:http://localhost:8888
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc://postgresql://localhost:5432/restaurant
+    url: jdbc:postgresql://localhost:5432/restaurants
     username: root
     password: ostentatious
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: create
+
+application:
+  config:
+    recipe-url: http://localhost:8090/api/v1/recipes
+
+

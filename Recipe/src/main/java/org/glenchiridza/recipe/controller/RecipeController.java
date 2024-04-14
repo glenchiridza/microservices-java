@@ -29,4 +29,12 @@ public class RecipeController {
     public ResponseEntity<List<Recipe>> findAllRecipes(){
         return ResponseEntity.ok(service.findAllRecipes());
     }
+
+    @GetMapping("/restaurant/{restaurant-id}")
+    public ResponseEntity<List<Recipe>> findAllRecipesByRestaurant(
+            @PathVariable("restaurant-id") Integer restaurantId
+    ){
+        return ResponseEntity.ok(service.findAllRecipesByRestaurant(restaurantId));
+    }
+
 }

@@ -20,4 +20,8 @@ public class RecipeService {
     public List<Recipe> findAllRecipes(){
         return repository.findAll();
     }
+
+    public List<Recipe> findAllRecipesByRestaurant(Integer restaurantId) {
+        return repository.findAllByRestaurantId(restaurantId);
+    }
 }

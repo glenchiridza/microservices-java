@@ -2,6 +2,7 @@ package org.glenchiridza.restaurant.controller;
 
 
 import lombok.RequiredArgsConstructor;
+import org.glenchiridza.restaurant.dto.responses.RestaurantResponse;
 import org.glenchiridza.restaurant.model.Restaurant;
 import org.glenchiridza.restaurant.service.RestaurantService;
 import org.springframework.http.HttpStatus;
@@ -26,7 +27,15 @@ public class RestaurantController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Restaurant>> findAllRecipes(){
+    public ResponseEntity<List<Restaurant>> findAllRestaurants(){
         return ResponseEntity.ok(service.findAllRestaurants());
     }
+
+    @GetMapping("recipes/{restaurant-id}")
+    public ResponseEntity<RestaurantResponse> findAllRestaurantRecipes(
+            @PathVariable("restaurant-id") Integer id){
+        return ResponseEntity.ok(service.findAllRestaurantRecipes(id));
+    }
+
+
 }
