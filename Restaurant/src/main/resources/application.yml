@@ -24,6 +24,6 @@ spring:
 
 application:
   config:
-    recipe-url: http://localhost:8090/api/v1/recipes
+    recipe-url: http://localhost:8022/api/v1/recipes
 
 
